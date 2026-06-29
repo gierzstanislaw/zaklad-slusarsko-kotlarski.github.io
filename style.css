@@ -1,0 +1,213 @@
+/* ==========================================================================
+   1. RESET I USTAWIENIA GLOBALNE
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f5f7;
+    color: #2d3748;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Styl dla linków */
+a {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+/* ==========================================================================
+   2. HEADER & NAWIGACJA (DESKTOP) - WERSJA PROCENTOWA
+   ========================================================================== */
+header {
+    background-color: #1a202c; 
+    /* KROK 1: Definiujemy sztywną wysokość nagłówka dla komputerów */
+    height: 140px; 
+    
+    /* Rezygnujemy z paddingu góra/dół, kontrolujemy tylko boki (5%) */
+    padding: 0 5%; 
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Kontener linku wokół logo */
+.logo-link {
+    display: flex;
+    align-items: center;
+    /* KROK 2: Link zajmuje pełną wysokość nagłówka */
+    height: 100%; 
+}
+
+.nav-logo {
+    /* KROK 3: Logo zajmuje dokładnie 90% wysokości nagłówka (w tym przypadku ok. 126px) */
+    height: 80%; 
+    width: auto;
+    display: block;
+    /* Automatycznie centruje logo w pionie wewnątrz 100% wysokości linku */
+    margin: auto 0; 
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-menu a {
+    color: #e2e8f0;
+}
+
+.nav-menu a.active{
+    color: #f8381d;
+    font-weight: 600;
+}
+
+.nav-menu a:hover {
+    color: #f6ad55;
+}
+
+.menu-toggle, 
+.hamburger-label {
+    display: none;
+}
+
+/* ==========================================================================
+   3. FOOTER (STOPKA)
+   ========================================================================== */
+footer {
+    background-color: #1a202c;
+    color: #a0aec0;
+    margin-top: auto; /* Popycha footer na dół strony, jeśli jest mało treści */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Stylizacja mapy */
+footer iframe {
+    width: 100% !important;
+    height: 250px; /* Maksymalna estetyczna wysokość mapy */
+    display: block;
+    filter: grayscale(20%) contrast(110%); /* Lekki industrialny filtr dla mapy */
+}
+
+/* Teksty w footerze */
+footer h4 {
+    font-size: 13px;
+    font-weight: 400;
+    margin: 15px 20px 0 20px;
+    color: #cbd5e0;
+}
+
+/* Ostatnia linijka z logo twórców strony */
+footer h4:last-of-type {
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+/* Logo WebDesign wielkości tekstu */
+footer h4 img {
+    height: 30px; /* Dokładnie dopasowane do wielkości linii tekstu */
+    width: auto;
+    vertical-align: middle;
+}
+
+/* ==========================================================================
+   4. RESPONSOWNOŚĆ (MEDIA QUERIES - MOBILE) - WERSJA PROCENTOWA
+   ========================================================================== */
+@media screen and (max-width: 992px) {
+    
+    header {
+        /* KROK 4: Na telefonach zmniejszamy nagłówek np. do 85px. 
+           Logo automatycznie zmniejszy się do ~76px. Będzie duże, ale nie rozwali układu! */
+        height: 85px; 
+    }
+
+    /* Pokaż przycisk hamburgera */
+    .hamburger-label {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .hamburger-label span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: #e2e8f0;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+
+    /* Ukryte menu rozwijane w pionie na telefonie */
+    .nav-menu {
+        position: absolute;
+        top: 100%; 
+        left: 0;
+        width: 100%;
+        background-color: #1a202c;
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 18px 0;
+        border-top: 1px solid #2d3748;
+        width: 100%;
+    }
+
+    /* Logika otwierania menu przy użyciu checkboxa: */
+    .menu-toggle:checked ~ .nav-menu {
+        max-height: 400px; 
+    }
+
+    /* Animacja hamburgera w krzyżyk (X) po kliknięciu */
+    .menu-toggle:checked ~ .hamburger-label span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle:checked ~ .hamburger-label span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle:checked ~ .hamburger-label span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
