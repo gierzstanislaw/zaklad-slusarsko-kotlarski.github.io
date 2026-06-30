@@ -124,13 +124,13 @@ footer h4:last-of-type {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 8px;
     flex-wrap: wrap;
 }
 
 /* Logo WebDesign wielkości tekstu */
 footer h4 img {
-    height: 30px; /* Dokładnie dopasowane do wielkości linii tekstu */
+    height: 27px; /* Dokładnie dopasowane do wielkości linii tekstu */
     width: auto;
     vertical-align: middle;
 }
