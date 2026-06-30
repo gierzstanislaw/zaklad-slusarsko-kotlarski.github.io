@@ -213,66 +213,76 @@ footer h4 img {
 }
 
 /* ==========================================================================
-   5. PODSTRONA KONTAKT (NOWA SEKCJA)
+   5. PODSTRONA KONTAKT (NOWA WERSJA DWUKOLUMNOWA)
    ========================================================================== */
 
-/* Tło dopasowane do reszty elementów */
 .contact-section {
-    background-color: #121620; /* Głęboki, bardzo ciemny grafit */
+    background-color: #121620; 
     color: #ffffff;
-    padding: 60px 5%;
-    flex-grow: 1; /* Wypełnia przestrzeń między headerem a footerem */
+    padding: 80px 5%; /* Większy padding dla lepszego rozbicia sekcji */
+    flex-grow: 1;
 }
 
 .section-title {
     text-align: center;
-    font-size: 36px;
+    font-size: 36px; /* Lekko powiększony tytuł */
     font-weight: 700;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #ffffff;
+    letter-spacing: 1.5px;
 }
 
-/* Główny kontener dla 3 kolumn */
+/* Główny kontener na dwie główne sekcje (lewa i prawa) */
 .contact-container {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 30px;
-    max-width: 1300px;
+    justify-content: center;
+    align-items: stretch; /* Sprawia, że obie strony mają równą wysokość */
+    gap: 40px; /* Większy odstęp między kolumnami */
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Pojedyncza karta / kolumna */
-.contact-card {
+/* Lewa kolumna grupująca dwa kafelki */
+.contact-info-column {
     flex: 1;
-    background-color: #1a202c; /* Taki sam kolor jak header i footer */
-    padding: 30px;
-    border-radius: 6px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Odstęp między dwoma lewymi kafelkami */
 }
 
-/* Specjalne traktowanie karty z formularzem (dajemy jej ciut więcej miejsca) */
+/* Prawa kolumna z formularzem */
 .form-card {
-    flex: 1.5;
+    flex: 1.2; /* Formularz jest minimalnie szerszy, co wygląda bardzo naturalnie */
 }
 
-/* Nagłówki wewnątrz kart */
+/* Uniwersalny styl kafelków */
+.contact-card {
+    background-color: #1a202c;
+    padding: 40px; /* Większy padding wewnątrz dla efektu "oddechu" */
+    border-radius: 6px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Klasa dla wyjustowania zawartości konkretnego kafelka */
+.card-justify {
+    text-align: justify;
+}
+
 .contact-card h2 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     color: #ffffff;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     line-height: 1.4;
 }
 
-/* Styl adresu i listy kontaktowej */
 .contact-card .address {
-    font-size: 15px;
+    font-size: 16px;
     color: #a0aec0;
     line-height: 1.8;
     margin-bottom: 30px;
@@ -283,29 +293,34 @@ footer h4 img {
 }
 
 .contact-list li {
-    margin-bottom: 15px;
-    font-size: 16px;
+    margin-bottom: 20px;
+    font-size: 17px;
     color: #e2e8f0;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+}
+
+.contact-list li:last-child {
+    margin-bottom: 0; /* Reset dla ostatniego elementu */
 }
 
 .contact-list .icon {
-    color: #f8381d; /* Twój kolor aktywny */
-    font-size: 18px;
+    color: #f8381d;
+    font-size: 20px;
 }
 
 /* Przycisk "Wyznacz trasę" */
 .map-btn-link {
     display: inline-block;
+    margin-top: auto; /* Popycha przycisk na dół kafelka, jeśli tekst jest krótki */
 }
 
 .btn-primary {
     background-color: #f8381d;
     color: white;
     border: none;
-    padding: 12px 24px;
+    padding: 14px 28px;
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
     font-weight: 600;
@@ -327,13 +342,13 @@ footer h4 img {
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
+    height: 100%;
 }
 
-/* Inputy obok siebie: Email i Telefon */
 .form-row {
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
 
 .contact-form input,
@@ -341,15 +356,14 @@ footer h4 img {
     width: 100%;
     background-color: #121620;
     border: 1px solid #2d3748;
-    padding: 12px 15px;
+    padding: 14px 18px;
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
-    font-size: 14px;
+    font-size: 15px;
     border-radius: 4px;
     transition: border-color 0.3s ease;
 }
 
-/* Pozbycie się strzałek w inpucie typu number */
 .contact-form input[type=number]::-webkit-inner-spin-button, 
 .contact-form input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none; 
@@ -366,12 +380,11 @@ footer h4 img {
     resize: vertical;
 }
 
-/* Przycisk wyślij */
 .btn-submit {
     background-color: #f8381d;
     color: white;
     border: none;
-    padding: 12px;
+    padding: 14px;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
@@ -380,51 +393,54 @@ footer h4 img {
     transition: background-color 0.3s ease;
     width: 100%;
     letter-spacing: 1px;
+    font-size: 15px;
 }
 
 .btn-submit:hover {
     background-color: #d62c16;
 }
 
-/* Tekst RODO pod formularzem */
 .rodo-text {
-    font-size: 10px;
+    font-size: 11px;
     color: #718096;
-    line-height: 1.5;
+    line-height: 1.6;
     text-align: justify;
     margin-top: 5px;
 }
 
 /* ==========================================================================
-   RESPONSOWNOŚĆ DLA KART KONTAKTOWYCH (MEDIA QUERIES)
+   RESPONSOWNOŚĆ (MEDIA QUERIES)
    ========================================================================== */
 
-/* Dla tabletów i małych laptopów - układ zmienia się z 3 kolumn na pionowy */
+/* Na tabletach i średnich ekranach przechodzimy w pełen pion */
 @media screen and (max-width: 992px) {
     .contact-container {
         flex-direction: column;
-        gap: 20px;
+        gap: 30px;
     }
     
-    .contact-card, .form-card {
+    .contact-info-column {
         width: 100%;
-        min-height: auto;
+    }
+    
+    .contact-card {
+        padding: 30px;
     }
 }
 
-/* Dla telefonów komórkowych - mail i telefon w formularzu wskakują pod siebie */
+/* Na telefonach dbamy o odpowiednie łamanie wierszy w formularzu */
 @media screen and (max-width: 576px) {
     .contact-section {
-        padding: 40px 4%;
+        padding: 50px 4%;
     }
     
     .section-title {
-        font-size: 26px;
-        margin-bottom: 30px;
+        font-size: 28px;
+        margin-bottom: 40px;
     }
 
     .form-row {
         flex-direction: column;
-        gap: 15px;
+        gap: 20px;
     }
 }
