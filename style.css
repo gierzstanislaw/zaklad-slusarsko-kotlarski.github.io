@@ -444,3 +444,238 @@ footer h4 img {
         gap: 20px;
     }
 }
+
+/* ==========================================================================
+   6. PODSTRONA KOTŁY C.O.
+   ========================================================================== */
+
+.products-section {
+    background-color: #121620; /* Spójne ciemne tło */
+    color: #ffffff;
+    padding: 80px 5%;
+    flex-grow: 1;
+}
+
+/* Sekcja nagłówkowa strony */
+.products-hero {
+    max-width: 900px;
+    margin: 0 auto 60px auto;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 25px;
+    line-height: 1.3;
+}
+
+.hero-desc {
+    font-size: 16px;
+    color: #cbd5e0;
+    line-height: 1.7;
+}
+
+/* Główny kontener na karty */
+.products-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Odstęp między dużymi blokami */
+}
+
+/* Ogólny styl dużych kart */
+.product-large-card {
+    background-color: #1a202c;
+    padding: 45px;
+    border-radius: 6px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.product-large-card h2,
+.product-small-card h2 {
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.product-large-card p,
+.product-small-card p {
+    font-size: 15px;
+    color: #a0aec0;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* Lista cech w dużym bloku 1 */
+.features-list {
+    list-style: none;
+    margin: 25px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.features-list li {
+    font-size: 15px;
+    color: #cbd5e0;
+    line-height: 1.7;
+    padding-left: 20px;
+    border-left: 3px solid #f8381d; /* Akcent spawalniczy po lewej stronie */
+}
+
+.feature-highlight {
+    display: block;
+    font-weight: 600;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+/* Lista certyfikatów w dużym bloku 2 */
+.cert-list {
+    list-style: none;
+    margin: 25px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cert-list li {
+    font-size: 16px;
+    color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.fire-icon {
+    color: #f8381d;
+    font-size: 18px;
+}
+
+/* Podsumowania na dole dużych kart */
+.card-summary {
+    font-weight: 400;
+    color: #e2e8f0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 15px;
+    border-top: 1px solid #2d3748;
+}
+
+/* WIERSZ Z DWIEMA MNIEJSZYMI KARTAMI */
+.small-cards-row {
+    display: flex;
+    gap: 40px;
+    align-items: stretch; /* Równa wysokość obu małych kart */
+}
+
+.product-small-card {
+    flex: 1;
+    background-color: #1a202c;
+    padding: 40px;
+    border-radius: 6px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Wyróżnienie tekstu dotacji */
+.text-accent {
+    color: #f8381d;
+    font-weight: 600;
+}
+
+/* Karta CTA (Wezwanie do kontaktu) */
+.cta-card {
+    text-align: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a202c 0%, #161b26 100%);
+    border: 1px dashed #2d3748; /* Estetyczna industrialna ramka */
+}
+
+.cta-sub {
+    font-size: 16px !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #718096 !important;
+    margin-bottom: 30px !important;
+}
+
+.cta-link {
+    display: block;
+    width: 100%;
+}
+
+.btn-cta {
+    width: 100%;
+    background-color: #f8381d;
+    color: #ffffff;
+    border: none;
+    padding: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-cta:hover {
+    background-color: #d62c16;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   RESPONSOWNOŚĆ (MEDIA QUERIES)
+   ========================================================================== */
+
+/* Dla tabletów - wszystko przechodzi w jedną kolumnę pionową */
+@media screen and (max-width: 992px) {
+    .products-section {
+        padding: 50px 4%;
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .product-large-card {
+        padding: 30px;
+    }
+
+    .small-cards-row {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .product-small-card {
+        padding: 30px;
+        width: 100%;
+    }
+}
+
+/* Dla smartfonów - wyłączenie justowania dla lepszej czytelności krótkich linii */
+@media screen and (max-width: 576px) {
+    .text-justify {
+        text-align: left; /* Na małych ekranach wyjustowany tekst potrafi robić brzydkie, wielkie dziury */
+    }
+    
+    .hero-title {
+        font-size: 24px;
+    }
+}
